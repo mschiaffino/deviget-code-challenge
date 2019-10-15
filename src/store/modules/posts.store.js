@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import redditService from '../../services/reddit.service';
 
+const VISITED_POSTS_LOCAL_STORAGE_KEY = 'VISITED_POSTS';
+
 export const postStore = {
   namespaced: true,
   state: {
     posts: {},
-    visited: {},
+    visited: restoredVisitedPostFromLocalStorage() || {},
     dismissed: {}
   },
   getters: {
@@ -24,6 +26,8 @@ export const postStore = {
     },
     markVisited(state, postId) {
       Vue.set(state.visited, postId, true);
+
+      updatedVisitedPostsInLocalStorage(state.visited);
     },
     dismissPost(state, postId) {
       Vue.set(state.dismissed, postId, true);
@@ -37,5 +41,16 @@ export const postStore = {
     }
   }
 };
+
+function restoredVisitedPostFromLocalStorage() {
+  return JSON.parse(localStorage.getItem(VISITED_POSTS_LOCAL_STORAGE_KEY));
+}
+
+function updatedVisitedPostsInLocalStorage(visitedPosts) {
+  localStorage.setItem(
+    VISITED_POSTS_LOCAL_STORAGE_KEY,
+    JSON.stringify(visitedPosts)
+  );
+}
 
 export default postStore;
