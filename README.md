@@ -1,5 +1,7 @@
 # deviget-code-challenge
 
+[DEPLOYED DEMO](http://deviget-codechallenge-martinschiaffino.s3-website.us-east-2.amazonaws.com)
+
 ## Decisions taken
 
 - Use AWS S3 to host the app.
