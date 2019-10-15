@@ -1,14 +1,10 @@
 <template>
   <div class="post-listing">
-    <el-button
-      type="danger"
-      @click="dismissAllPosts"
-      :disabled="dismissAllDisabled"
-      class="dismiss-all-button"
-    >DISMISS ALL</el-button>
+    <button-dismiss-all-posts :disabled="dismissAllDisabled"></button-dismiss-all-posts>
     <div
       v-for="post in postsNotDismissed"
       :key="post.id"
+      class="post-listing-items-container"
     >
       <post-listing-item :post-id="post.id"></post-listing-item>
     </div>
@@ -16,8 +12,9 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import PostListingItem from "./PostListingItem.vue";
+import ButtonDismissAllPosts from "./ButtonDismissAllPosts.vue";
 
 export default {
   name: "post-listing",
@@ -27,11 +24,9 @@ export default {
       return this.postsNotDismissed.length === 0;
     }
   },
-  methods: {
-    ...mapActions("postsStore", ["dismissAllPosts"])
-  },
   components: {
-    PostListingItem
+    PostListingItem,
+    ButtonDismissAllPosts
   }
 };
 </script>
@@ -44,8 +39,8 @@ export default {
   overflow: scroll;
   margin-top: 20px;
 }
-.dismiss-all-button {
-  width: 100%;
-  margin-bottom: 10px;
+
+.post-listing-items-container {
+  margin-top: 10px;
 }
 </style>
