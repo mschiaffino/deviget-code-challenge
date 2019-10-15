@@ -4,6 +4,7 @@
 
 - Use AWS S3 to host the app.
 - Postpone Reddit API integration: to avoid wasting scarce time, since an API response mock has been provided, the integration will be implemented only if time permits. Pagination will be implemented after API integration.
+- Use element IO componentes dependecy to avoid wating time working on styling.
 
 ## Project setup
 
