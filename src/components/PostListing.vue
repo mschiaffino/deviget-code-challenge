@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post-listing">
     <div
       v-for="post in posts"
       :key="post.id"
@@ -24,5 +24,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.post-listing {
+  width: 30%;
+}
 </style>
