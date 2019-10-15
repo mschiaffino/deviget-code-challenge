@@ -1,10 +1,19 @@
 <template>
   <el-card>
-    <span
-      v-text="post.title"
-      @click="showFullPost"
-      class="post-listing-item-title"
-    ></span>
+    <div class="flex">
+      <span
+        v-text="post.title"
+        @click="showFullPost"
+        class="post-listing-item-title"
+      ></span>
+      <img
+        v-if="post.thumbnail"
+        :src="post.thumbnail"
+        alt=""
+        height="140"
+        width="140"
+      >
+    </div>
   </el-card>
 </template>
 
