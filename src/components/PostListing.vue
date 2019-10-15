@@ -1,7 +1,7 @@
 <template>
   <div class="post-listing">
     <div
-      v-for="post in posts"
+      v-for="post in postsNotDismissed"
       :key="post.id"
     >
       <post-listing-item :post-id="post.id"></post-listing-item>
@@ -16,7 +16,7 @@ import PostListingItem from "./PostListingItem.vue";
 export default {
   name: "post-listing",
   computed: {
-    ...mapGetters("postsStore", ["posts"])
+    ...mapGetters("postsStore", ["postsNotDismissed"])
   },
   components: {
     PostListingItem

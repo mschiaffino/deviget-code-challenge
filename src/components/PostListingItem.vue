@@ -18,15 +18,23 @@
           <span v-text="post.author"></span>
         </div>
       </div>
-      <img
-        v-if="post.thumbnail"
-        @click="showFullPost"
-        :src="post.thumbnail"
-        alt=""
-        height="140"
-        width="140"
-        class="post-listing-item-thumbnail"
-      >
+      <div class="flex flex-column">
+        <div class="flex justify-end">
+          <i
+            class="el-icon-circle-close"
+            @click="handleDismissClick"
+          ></i>
+        </div>
+        <img
+          v-if="post.thumbnail"
+          @click="showFullPost"
+          :src="post.thumbnail"
+          alt=""
+          height="140"
+          width="140"
+          class="post-listing-item-thumbnail"
+        >
+      </div>
     </div>
   </el-card>
 </template>
@@ -51,7 +59,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations("postsStore", ["markVisited"]),
+    ...mapMutations("postsStore", ["markVisited", "dismissPost"]),
     showFullPost() {
       this.$router.push({
         name: "full-post",
@@ -60,6 +68,9 @@ export default {
         }
       });
       this.markVisited(this.postId);
+    },
+    handleDismissClick() {
+      this.dismissPost(this.postId);
     }
   }
 };
@@ -84,10 +95,15 @@ export default {
 
 .post-listing-item-thumbnail {
   cursor: pointer;
+  margin: 3px 0;
 }
 
 .el-icon-user-solid {
   margin-right: 3px;
+}
+
+.el-icon-circle-close {
+  cursor: pointer;
 }
 
 .unvisited-dot {
