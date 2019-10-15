@@ -3,10 +3,7 @@
     <div class="flex justify-space-between">
       <div class="flex flex-column justify-space-between text-align-left">
         <div>
-          <span
-            class="visited-status"
-            :class="{unvisited: !postAlreadyVisited}"
-          ></span>
+          <visited-status-mark :visited="postAlreadyVisited"></visited-status-mark>
           <span
             v-text="post.title"
             @click="showFullPost"
@@ -39,6 +36,7 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import PostFooter from "./PostFooter.vue";
+import VisitedStatusMark from "./VisitedStatusMark.vue";
 
 export default {
   props: {
@@ -72,7 +70,8 @@ export default {
     }
   },
   components: {
-    PostFooter
+    PostFooter,
+    VisitedStatusMark
   }
 };
 </script>
@@ -98,18 +97,5 @@ export default {
 
 .el-icon-circle-close {
   cursor: pointer;
-}
-
-.visited-status {
-  height: 10px;
-  width: 10px;
-  margin-right: 4px;
-  background-color: #909399;
-  border-radius: 50%;
-  display: inline-block;
-
-  &.unvisited {
-    background-color: #409eff;
-  }
 }
 </style>
