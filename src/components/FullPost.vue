@@ -1,6 +1,17 @@
 <template>
   <el-card>
-    <span v-text="post.title"></span>
+    <div slot="header">
+      <span v-text="post.title"></span>
+    </div>
+    <div>
+      <img
+        v-if="post.url"
+        :src="post.url"
+        alt=""
+        height="40%"
+        width="40%"
+      >
+    </div>
   </el-card>
 </template>
 
