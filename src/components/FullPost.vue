@@ -6,20 +6,24 @@
     <div slot="header">
       <span v-text="post.title"></span>
     </div>
-    <div>
-      <img
-        v-if="post.url"
-        :src="post.url"
-        alt=""
-        height="40%"
-        width="40%"
-      >
+    <div class="flex flex-column justify-space-between">
+      <div class="flex-1">
+        <img
+          v-if="post.url"
+          :src="post.url"
+          alt=""
+          height="40%"
+          width="40%"
+        >
+      </div>
+      <post-footer :post-id="postId"></post-footer>
     </div>
   </el-card>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import PostFooter from "./PostFooter.vue";
 
 export default {
   name: "full-post",
@@ -34,6 +38,9 @@ export default {
     post() {
       return this.posts[this.postId];
     }
+  },
+  components: {
+    PostFooter
   }
 };
 </script>

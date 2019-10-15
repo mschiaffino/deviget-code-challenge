@@ -1,7 +1,7 @@
 <template>
   <el-card class="post-listing-item-card">
     <div class="flex justify-space-between">
-      <div class="post-listing-item-title-author flex flex-column justify-space-between">
+      <div class="flex flex-column justify-space-between text-align-left">
         <div>
           <span
             class="visited-status"
@@ -12,11 +12,6 @@
             @click="showFullPost"
             class="post-listing-item-title"
           ></span>
-        </div>
-        <div class="post-listing-item-author">
-          <i class="el-icon-user-solid"></i>
-          <span v-text="post.author"></span>
-          <span v-text="timeSinceCreation"></span>
         </div>
       </div>
       <div class="flex flex-column justify-space-between">
@@ -35,18 +30,15 @@
           width="140"
           class="post-listing-item-thumbnail"
         >
-        <div class="flex align-center justify-end">
-          <span v-text="post.commentsQuantity"></span>
-          <i class="el-icon-chat-square"></i>
-        </div>
       </div>
     </div>
+    <post-footer :post-id="postId"></post-footer>
   </el-card>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import moment from "moment";
+import PostFooter from "./PostFooter.vue";
 
 export default {
   props: {
@@ -62,10 +54,6 @@ export default {
     },
     postAlreadyVisited() {
       return this.visited[this.postId] || false;
-    },
-    timeSinceCreation() {
-      let creationDateMoment = moment.utc(this.post.creationDate);
-      return `, ${creationDateMoment.fromNow()}`;
     }
   },
   methods: {
@@ -82,6 +70,9 @@ export default {
     handleDismissClick() {
       this.dismissPost(this.postId);
     }
+  },
+  components: {
+    PostFooter
   }
 };
 </script>
@@ -91,25 +82,18 @@ export default {
   margin-bottom: 6px;
 }
 
-.post-listing-item-title-author {
+.text-align-left {
   text-align: left;
 }
 
 .post-listing-item-title {
   cursor: pointer;
-}
-
-.post-listing-item-author {
-  margin-top: 10px;
+  text-align: left;
 }
 
 .post-listing-item-thumbnail {
   cursor: pointer;
   margin: 3px 0;
-}
-
-.el-icon-user-solid {
-  margin-right: 3px;
 }
 
 .el-icon-circle-close {
