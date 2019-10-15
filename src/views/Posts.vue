@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex">
     <post-listing></post-listing>
     <full-post post-id="2hozly"></full-post>
   </div>
