@@ -8,10 +8,12 @@
       ></span>
       <img
         v-if="post.thumbnail"
+        @click="showFullPost"
         :src="post.thumbnail"
         alt=""
         height="140"
         width="140"
+        class="post-listing-item-thumbnail"
       >
     </div>
   </el-card>
@@ -48,6 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 .post-listing-item-title {
+  cursor: pointer;
+}
+.post-listing-item-thumbnail {
   cursor: pointer;
 }
 </style>
