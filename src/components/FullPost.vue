@@ -1,14 +1,13 @@
 <template>
-  <el-card
-    class="full-post"
-    v-if="post"
-  >
+  <el-card class="full-post">
     <div slot="header">
-      <span v-text="post.title"></span>
+      <span
+        v-if="post"
+        v-text="post.title"
+      ></span>
     </div>
     <div class="flex flex-column justify-space-between">
       <post-info-details :post-id="postId"></post-info-details>
-
       <div>
         <img
           v-if="post.url"
