@@ -1,11 +1,19 @@
 <template>
   <el-card class="post-listing-item-card">
     <div class="flex justify-space-between">
-      <span
-        v-text="post.title"
-        @click="showFullPost"
-        class="post-listing-item-title"
-      ></span>
+      <div class="post-listing-item-title-author flex flex-column justify-space-between">
+        <div>
+          <span
+            v-text="post.title"
+            @click="showFullPost"
+            class="post-listing-item-title"
+          ></span>
+        </div>
+        <div class="post-listing-item-author">
+          <i class="el-icon-user-solid"></i>
+          <span v-text="post.author"></span>
+        </div>
+      </div>
       <img
         v-if="post.thumbnail"
         @click="showFullPost"
@@ -52,11 +60,24 @@ export default {
 .post-listing-item-card {
   margin-bottom: 6px;
 }
-.post-listing-item-title {
-  cursor: pointer;
+
+.post-listing-item-title-author {
   text-align: left;
 }
+
+.post-listing-item-title {
+  cursor: pointer;
+}
+
+.post-listing-item-author {
+  margin-top: 10px;
+}
+
 .post-listing-item-thumbnail {
   cursor: pointer;
+}
+
+.el-icon-user-solid {
+  margin-right: 3px;
 }
 </style>
