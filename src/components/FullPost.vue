@@ -47,7 +47,8 @@ export default {
 
 <style lang="scss" scoped>
 .full-post {
-  margin-left: 20px;
   width: 60%;
+  min-width: 300px;
+  margin-top: 20px;
 }
 </style>

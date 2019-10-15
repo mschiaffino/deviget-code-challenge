@@ -9,6 +9,9 @@
 .justify-space-between {
   justify-content: space-between;
 }
+.justify-space-around {
+  justify-content: space-around;
+}
 
 .justify-end {
   justify-content: flex-end;
@@ -20,4 +23,8 @@
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
 }

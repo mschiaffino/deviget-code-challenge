@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex justify-space-around flex-wrap-reverse">
     <post-listing></post-listing>
     <router-view />
   </div>
