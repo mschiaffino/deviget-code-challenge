@@ -1,12 +1,20 @@
 <template>
   <div class="post-listing">
-    <button-dismiss-all-posts :disabled="dismissAllDisabled"></button-dismiss-all-posts>
-    <div
-      v-for="post in postsNotDismissed"
-      :key="post.id"
-      class="post-listing-items-container"
-    >
-      <post-listing-item :post-id="post.id"></post-listing-item>
+    <button-dismiss-all-posts :disabled="allPostsAreDismissed"></button-dismiss-all-posts>
+    <div class="post-listing-items-container">
+      <el-alert
+        v-if="allPostsAreDismissed"
+        title="All posts have been dismissed"
+        type="info"
+        :closable="false"
+        show-icon
+      >
+      </el-alert>
+      <post-listing-item
+        :post-id="post.id"
+        v-for="post in postsNotDismissed"
+        :key="post.id"
+      ></post-listing-item>
     </div>
   </div>
 </template>
@@ -20,7 +28,7 @@ export default {
   name: "post-listing",
   computed: {
     ...mapGetters("postsStore", ["postsNotDismissed"]),
-    dismissAllDisabled() {
+    allPostsAreDismissed() {
       return this.postsNotDismissed.length === 0;
     }
   },
