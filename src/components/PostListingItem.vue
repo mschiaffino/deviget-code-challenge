@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card class="post-listing-item-card">
     <div class="flex justify-space-between">
       <span
         v-text="post.title"
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.post-listing-item-card {
+  margin-bottom: 6px;
+}
 .post-listing-item-title {
   cursor: pointer;
 }
