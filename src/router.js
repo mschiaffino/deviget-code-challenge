@@ -8,7 +8,7 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/posts',
       name: 'posts',
       component: Posts,
       children: [
@@ -19,6 +19,7 @@ export default new Router({
           props: true
         }
       ]
-    }
+    },
+    { path: '/*', redirect: { name: 'posts' } }
   ]
 });
