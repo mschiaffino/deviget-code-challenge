@@ -3,6 +3,7 @@
 ## Decisions taken
 
 - Use AWS S3 to host the app.
+- Postpone Reddit API integration: to avoid wasting scarce time, since an API response mock has been provided, the integration will be implemented only if time permits. Pagination will be implemented after API integration.
 
 ## Project setup
 
