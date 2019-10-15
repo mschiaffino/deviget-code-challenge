@@ -1,13 +1,12 @@
 <template>
   <div class="flex">
     <post-listing></post-listing>
-    <full-post post-id="2hozly"></full-post>
+    <router-view />
   </div>
 </template>
 
 <script>
 import PostListing from "../components/PostListing.vue";
-import FullPost from "../components/FullPost.vue";
 
 export default {
   name: "posts",
@@ -15,7 +14,6 @@ export default {
     this.$store.dispatch("postsStore/fetchPosts");
   },
   components: {
-    FullPost,
     PostListing
   }
 };
