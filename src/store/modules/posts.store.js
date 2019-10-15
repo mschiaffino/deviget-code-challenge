@@ -19,7 +19,7 @@ export const postStore = {
   mutations: {
     setPosts(state, posts) {
       posts.forEach(post => {
-        Vue.set(state.posts, post.data.id, post.data);
+        Vue.set(state.posts, post.id, post);
       });
     },
     markVisited(state, postId) {
@@ -33,7 +33,7 @@ export const postStore = {
     fetchPosts({ commit }) {
       return redditService
         .fetchPosts()
-        .then(response => commit('setPosts', response.data.children));
+        .then(posts => commit('setPosts', posts));
     }
   }
 };
