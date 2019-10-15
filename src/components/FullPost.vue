@@ -1,5 +1,8 @@
 <template>
-  <el-card class="full-post">
+  <el-card
+    class="full-post"
+    v-if="post"
+  >
     <div slot="header">
       <span v-text="post.title"></span>
     </div>
