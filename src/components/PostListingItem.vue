@@ -54,6 +54,7 @@ export default {
 }
 .post-listing-item-title {
   cursor: pointer;
+  text-align: left;
 }
 .post-listing-item-thumbnail {
   cursor: pointer;
