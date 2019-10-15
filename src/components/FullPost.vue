@@ -7,6 +7,8 @@
       <span v-text="post.title"></span>
     </div>
     <div class="flex flex-column justify-space-between">
+      <post-info-details :post-id="postId"></post-info-details>
+
       <div>
         <img
           v-if="post.url"
@@ -16,14 +18,13 @@
           width="40%"
         >
       </div>
-      <post-footer :post-id="postId"></post-footer>
     </div>
   </el-card>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import PostFooter from "./PostFooter.vue";
+import PostInfoDetails from "./PostInfoDetails.vue";
 
 export default {
   name: "full-post",
@@ -40,7 +41,7 @@ export default {
     }
   },
   components: {
-    PostFooter
+    PostInfoDetails
   }
 };
 </script>

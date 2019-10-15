@@ -29,13 +29,13 @@
         >
       </div>
     </div>
-    <post-footer :post-id="postId"></post-footer>
+    <post-info-details :post-id="postId"></post-info-details>
   </el-card>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import PostFooter from "./PostFooter.vue";
+import PostInfoDetails from "./PostInfoDetails.vue";
 import VisitedStatusMark from "./VisitedStatusMark.vue";
 
 export default {
@@ -70,7 +70,7 @@ export default {
     }
   },
   components: {
-    PostFooter,
+    PostInfoDetails,
     VisitedStatusMark
   }
 };
