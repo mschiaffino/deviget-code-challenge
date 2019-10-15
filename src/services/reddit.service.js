@@ -13,7 +13,8 @@ function toPostModel({ data }) {
     data.title,
     data.author,
     data.thumbnail,
-    data.num_comments
+    data.num_comments,
+    data.created_utc
   );
 }
 

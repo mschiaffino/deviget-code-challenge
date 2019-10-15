@@ -16,6 +16,7 @@
         <div class="post-listing-item-author">
           <i class="el-icon-user-solid"></i>
           <span v-text="post.author"></span>
+          <span v-text="timeSinceCreation"></span>
         </div>
       </div>
       <div class="flex flex-column justify-space-between">
@@ -45,6 +46,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import moment from "moment";
 
 export default {
   props: {
@@ -60,6 +62,10 @@ export default {
     },
     postAlreadyVisited() {
       return this.visited[this.postId] || false;
+    },
+    timeSinceCreation() {
+      let creationDateMoment = moment.utc(this.post.creationDate);
+      return `, ${creationDateMoment.fromNow()}`;
     }
   },
   methods: {
