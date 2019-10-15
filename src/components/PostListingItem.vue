@@ -4,6 +4,10 @@
       <div class="post-listing-item-title-author flex flex-column justify-space-between">
         <div>
           <span
+            v-if="!postAlreadyVisited"
+            class="unvisited-dot"
+          ></span>
+          <span
             v-text="post.title"
             @click="showFullPost"
             class="post-listing-item-title"
@@ -28,7 +32,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   props: {
@@ -38,12 +42,16 @@ export default {
     }
   },
   computed: {
-    ...mapState("postsStore", ["posts"]),
+    ...mapState("postsStore", ["posts", "visited"]),
     post() {
       return this.posts[this.postId];
+    },
+    postAlreadyVisited() {
+      return this.visited[this.postId] || false;
     }
   },
   methods: {
+    ...mapMutations("postsStore", ["markVisited"]),
     showFullPost() {
       this.$router.push({
         name: "full-post",
@@ -51,6 +59,7 @@ export default {
           postId: this.postId
         }
       });
+      this.markVisited(this.postId);
     }
   }
 };
@@ -79,5 +88,14 @@ export default {
 
 .el-icon-user-solid {
   margin-right: 3px;
+}
+
+.unvisited-dot {
+  height: 10px;
+  width: 10px;
+  margin-right: 4px;
+  background-color: #409eff;
+  border-radius: 50%;
+  display: inline-block;
 }
 </style>

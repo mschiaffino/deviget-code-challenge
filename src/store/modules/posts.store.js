@@ -4,7 +4,8 @@ import redditService from '../../services/reddit.service';
 export const postStore = {
   namespaced: true,
   state: {
-    posts: {}
+    posts: {},
+    visited: {}
   },
   getters: {
     posts(state) {
@@ -16,6 +17,9 @@ export const postStore = {
       posts.forEach(post => {
         Vue.set(state.posts, post.data.id, post.data);
       });
+    },
+    markVisited(state, postId) {
+      Vue.set(state.visited, postId, true);
     }
   },
   actions: {
