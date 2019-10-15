@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card class="full-post">
     <div slot="header">
       <span v-text="post.title"></span>
     </div>
@@ -35,5 +35,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.full-post {
+  margin-left: 20px;
+  width: 60%;
+}
 </style>
