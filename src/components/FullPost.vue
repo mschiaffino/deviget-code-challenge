@@ -7,7 +7,7 @@
       <span v-text="post.title"></span>
     </div>
     <div class="flex flex-column justify-space-between">
-      <div class="flex-1">
+      <div>
         <img
           v-if="post.url"
           :src="post.url"
