@@ -6,7 +6,11 @@ export const postStore = {
   state: {
     posts: {}
   },
-  getters: {},
+  getters: {
+    posts(state) {
+      return Object.values(state.posts);
+    }
+  },
   mutations: {
     setPosts(state, posts) {
       posts.forEach(post => {
