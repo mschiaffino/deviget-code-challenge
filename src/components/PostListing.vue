@@ -27,5 +27,7 @@ export default {
 <style lang="scss" scoped>
 .post-listing {
   width: 30%;
+  max-height: 100vh;
+  overflow: scroll;
 }
 </style>
