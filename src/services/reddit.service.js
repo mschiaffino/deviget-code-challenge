@@ -8,7 +8,13 @@ function fetchPosts() {
 }
 
 function toPostModel({ data }) {
-  return new Post(data.id, data.title, data.author, data.thumbnail);
+  return new Post(
+    data.id,
+    data.title,
+    data.author,
+    data.thumbnail,
+    data.num_comments
+  );
 }
 
 export default {

@@ -18,7 +18,7 @@
           <span v-text="post.author"></span>
         </div>
       </div>
-      <div class="flex flex-column">
+      <div class="flex flex-column justify-space-between">
         <div class="flex justify-end">
           <i
             class="el-icon-circle-close"
@@ -34,6 +34,10 @@
           width="140"
           class="post-listing-item-thumbnail"
         >
+        <div class="flex align-center justify-end">
+          <span v-text="post.commentsQuantity"></span>
+          <i class="el-icon-chat-square"></i>
+        </div>
       </div>
     </div>
   </el-card>
