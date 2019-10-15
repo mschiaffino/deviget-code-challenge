@@ -41,6 +41,11 @@ export const postStore = {
       return redditService
         .fetchPosts()
         .then(posts => commit('setPosts', posts));
+    },
+    dismissAllPosts({ getters, commit }) {
+      getters.postsNotDismissed.forEach(post => {
+        commit('dismissPost', post.id);
+      });
     }
   }
 };
