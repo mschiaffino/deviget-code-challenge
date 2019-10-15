@@ -14,7 +14,8 @@ function toPostModel({ data }) {
     data.author,
     data.thumbnail,
     data.num_comments,
-    data.created_utc
+    data.created_utc,
+    data.url
   );
 }
 

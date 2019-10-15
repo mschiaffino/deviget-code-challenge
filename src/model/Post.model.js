@@ -1,11 +1,20 @@
 export default class Post {
-  constructor(id, title, author, thumbnail, commentsQuantity, creationDate) {
+  constructor(
+    id,
+    title,
+    author,
+    thumbnail,
+    commentsQuantity,
+    creationDate,
+    url
+  ) {
     this._id = id;
     this._title = title;
     this._author = author;
     this._thumbnail = thumbnail;
     this._commentsQuantity = commentsQuantity;
     this._creationDate = new Date(creationDate * 1000);
+    this._url = url;
   }
 
   get id() {
@@ -30,5 +39,9 @@ export default class Post {
 
   get creationDate() {
     return this._creationDate;
+  }
+
+  get url() {
+    return this._url;
   }
 }
