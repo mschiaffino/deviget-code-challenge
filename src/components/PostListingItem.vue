@@ -1,6 +1,6 @@
 <template>
   <el-card>
-    <div class="flex">
+    <div class="flex justify-space-between">
       <span
         v-text="post.title"
         @click="showFullPost"
