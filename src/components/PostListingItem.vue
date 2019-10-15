@@ -4,8 +4,8 @@
       <div class="post-listing-item-title-author flex flex-column justify-space-between">
         <div>
           <span
-            v-if="!postAlreadyVisited"
-            class="unvisited-dot"
+            class="visited-status"
+            :class="{unvisited: !postAlreadyVisited}"
           ></span>
           <span
             v-text="post.title"
@@ -110,12 +110,16 @@ export default {
   cursor: pointer;
 }
 
-.unvisited-dot {
+.visited-status {
   height: 10px;
   width: 10px;
   margin-right: 4px;
-  background-color: #409eff;
+  background-color: #909399;
   border-radius: 50%;
   display: inline-block;
+
+  &.unvisited {
+    background-color: #409eff;
+  }
 }
 </style>
